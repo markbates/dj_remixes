@@ -4,7 +4,7 @@ require 'gemstub'
 Gemstub.test_framework = :rspec
 
 Gemstub.gem_spec do |s|
-  s.version = '0.0.10'
+  s.version = '0.0.15'
   # s.rubyforge_project = 'dj_remixes'
   # s.add_dependency('')
   # s.email = ''

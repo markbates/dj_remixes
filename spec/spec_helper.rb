@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'fileutils'
 require 'logger'
+require 'timecop'
 
 FileUtils.mkdir_p(File.join(File.dirname(__FILE__), 'tmp'))
 RAILS_DEFAULT_LOGGER = Logger.new(File.join(File.dirname(__FILE__), 'tmp', 'dj.log'))
@@ -9,13 +10,14 @@ gem 'activesupport'
 gem 'activerecord'
 require 'action_mailer'
 
+module HoptoadNotifier
+  def self.notify_or_ignore(error, options = {})
+  end
+end
+
 require File.join(File.dirname(__FILE__), '..', 'delayed_job', 'lib', 'delayed_job')
 
-
-
-# Delayed::Worker.logger = 
 Delayed::Worker.guess_backend
-
 
 module Rails
   class << self
@@ -29,6 +31,7 @@ require File.join(File.dirname(__FILE__), 'database.rb')
 require 'spec'
 
 require File.join(File.dirname(__FILE__), '..', 'lib', 'dj_remixes')
+require File.join(File.dirname(__FILE__), '..', 'lib', 'dj_remixes', 'rails2', 'action_mailer')
 
 
 Spec::Runner.configure do |config|
@@ -42,18 +45,14 @@ Spec::Runner.configure do |config|
   end
   
   config.before(:each) do
-    
+    Timecop.freeze(DateTime.now)
   end
   
   config.after(:each) do
+    Timecop.return
     DJ.delete_all
   end
   
-end
-
-module HoptoadNotifier
-  def self.notify_or_ignore(error, options = {})
-  end
 end
 
 class WillFailJob < DJ::Worker
@@ -72,25 +71,10 @@ class SimpleWorker < DJ::Worker
 end
 
 class RunForeverWorker < DJ::Worker
-  re_enqueue {|current, new_worker| new_worker.priority = 795}
-  
-  def initialize(options)
-  end
+  re_enqueue
   
   def perform
     Greeter.greet("Hi from RunForeverWorker")
-  end
-  
-end
-
-class RunForeverWithoutOptionsWorker < DJ::Worker
-  re_enqueue {|current, new_worker| new_worker.priority = 795}
-  
-  def initialize
-  end
-  
-  def perform
-    Greeter.greet("Hi from RunForeverWithoutOptionsWorker")
   end
   
 end
