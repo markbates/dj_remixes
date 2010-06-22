@@ -2,7 +2,8 @@ module Mail
   class Message
     
     class MailmanWorker < DJ::Worker
-      priority :immediate
+      priority :urgent
+      run_at {1.year.ago}
       
       def perform
         message = Marshal.load(self.mail)

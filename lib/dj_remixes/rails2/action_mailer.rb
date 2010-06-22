@@ -9,7 +9,8 @@ if defined?(ActionMailer)
           eval %{
             class ::#{klass}Worker < DJ::Worker
               
-              priority :immediate
+              priority :urgent
+              run_at {1.year.ago}
 
               attr_accessor :called_method
               attr_accessor :args
