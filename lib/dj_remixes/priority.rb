@@ -2,7 +2,7 @@ module DJ
   class Worker
     
     # A helpful list of symbols to priority levels
-    PRIORITY_LEVELS = {:urgent => 100000, :immediate => 10000, :high => 1000, :medium => 500, :normal => 0, :low => -100, :who_cares => -1000}
+    PRIORITY_LEVELS = {:urgent => -100000, :immediate => -10000, :high => -1000, :medium => -500, :normal => 0, :low => 100, :who_cares => 1000}
     
     attr_accessor :priority
     

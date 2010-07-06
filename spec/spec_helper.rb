@@ -6,8 +6,10 @@ require 'timecop'
 FileUtils.mkdir_p(File.join(File.dirname(__FILE__), 'tmp'))
 RAILS_DEFAULT_LOGGER = Logger.new(File.join(File.dirname(__FILE__), 'tmp', 'dj.log'))
 
+gem 'railties'
 gem 'activesupport'
 gem 'activerecord'
+require 'rails/railtie'
 require 'action_mailer'
 
 module HoptoadNotifier
@@ -15,26 +17,26 @@ module HoptoadNotifier
   end
 end
 
-require File.join(File.dirname(__FILE__), '..', 'delayed_job', 'lib', 'delayed_job')
+# require File.join(File.dirname(__FILE__), '..', 'delayed_job', 'lib', 'delayed_job')
+require 'delayed_job'
 
 Delayed::Worker.guess_backend
 
 module Rails
   class << self
     def version
-      '2.3.5'
+      '3.0.0'
     end
   end
 end
 require File.join(File.dirname(__FILE__), 'database.rb')
 
-require 'spec'
+require 'rspec'
 
 require File.join(File.dirname(__FILE__), '..', 'lib', 'dj_remixes')
-require File.join(File.dirname(__FILE__), '..', 'lib', 'dj_remixes', 'rails2', 'action_mailer')
 
 
-Spec::Runner.configure do |config|
+Rspec.configure do |config|
   
   config.before(:all) do
     

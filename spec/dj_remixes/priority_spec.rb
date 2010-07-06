@@ -7,7 +7,7 @@ describe DJ::Worker do
     it 'should take a Symbol from the class priority list' do
       w = SimpleWorker.new
       w.priority = :medium
-      w.priority.should == 500
+      w.priority.should == -500
     end
     
     it 'should return 0 if it does not recognize the priority' do
@@ -38,7 +38,7 @@ describe DJ::Worker do
         priority :immediate
       end
       w = PriorityWorkerTest.new
-      w.priority.should == 10000
+      w.priority.should == -10000
     end
     
   end

@@ -19,7 +19,7 @@ require File.join(path, 'hoptoad')
 
 if Rails.version.match(/^2/)
   # require File.join(path, 'rails2', 'action_mailer')
-  require File.join(path, 'rails2', 'unique_validator')
+  # require File.join(path, 'rails2', 'unique_validator')
 else
   require File.join(path, 'rails3', 'railtie')
   require File.join(path, 'rails3', 'unique_validator')

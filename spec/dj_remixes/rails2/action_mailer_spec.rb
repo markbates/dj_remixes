@@ -3,6 +3,7 @@ require 'spec_helper'
 describe ActionMailer do
   
   it 'should create a worker for an ActionMailer class' do
+    pending
     Object.const_defined?('PostmanWorker').should be_false
     require File.join(File.dirname(__FILE__), '..', '..', 'support', 'postman')
     Object.const_defined?('PostmanWorker').should be_true
