@@ -4,7 +4,7 @@ if Object.const_defined?(:HoptoadNotifier)
     
       # Report Errors to Hoptoad:
       def failure_with_hoptoad(job, error)
-        HoptoadNotifier.notify_or_ignore(error, :cgi_data => self.attributes)
+        HoptoadNotifier.notify_or_ignore(error, :cgi_data => self.dj_object.attributes)
         failure_without_hoptoad(job, error)
       end
     

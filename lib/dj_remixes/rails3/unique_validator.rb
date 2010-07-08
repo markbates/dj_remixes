@@ -5,7 +5,7 @@ class UniqueDJValidator < ActiveModel::Validator
     if record.payload_object.respond_to?(:unique?) && record.new_record?
       if record.payload_object.unique?
         if DJ.where(:worker_class_name => record.payload_object.worker_class_name, :finished_at => nil).count > 0
-          record.errors.add_to_base("Only one #{record.payload_object.worker_class_name} can be queued at a time!")
+          record.errors.add(:base, "Only one #{record.payload_object.worker_class_name} can be queued at a time!")
         end
       end
     end
