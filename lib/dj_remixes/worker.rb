@@ -1,7 +1,6 @@
 module DJ
   class Worker
     
-    attr_accessor :run_at
     attr_accessor :worker_class_name
     
     class << self
@@ -10,10 +9,6 @@ module DJ
         self.new(*args).enqueue
       end
       
-    end
-    
-    def run_at
-      return @run_at ||= Time.now
     end
     
     def dj_object=(dj)

@@ -9,7 +9,7 @@ module Mail
         message = Marshal.load(self.mail)
         message.deliver_without_worker
       end
-    end
+    end # MailmanWorker
     
     def deliver_with_worker
       if ActionMailer::Base.delivery_method == :test
@@ -22,6 +22,5 @@ module Mail
     
     alias_method_chain :deliver, :worker
     
-  end # Base
-end # ActionMailer
-
+  end # Message
+end # Mail

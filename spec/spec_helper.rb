@@ -33,7 +33,7 @@ require File.join(File.dirname(__FILE__), 'database.rb')
 
 require 'rspec'
 
-require File.join(File.dirname(__FILE__), '..', 'lib', 'dj_remixes')
+require File.join(File.dirname(__FILE__), '..', 'lib', 'dj_remixes', 'requires')
 
 
 Rspec.configure do |config|
