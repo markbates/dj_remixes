@@ -1,3 +1,4 @@
+require 'mark_facets'
 %w{dj_remixes 
    worker 
    attributes 

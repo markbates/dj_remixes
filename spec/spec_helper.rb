@@ -20,7 +20,7 @@ end
 # require File.join(File.dirname(__FILE__), '..', 'delayed_job', 'lib', 'delayed_job')
 require 'delayed_job'
 
-Delayed::Worker.guess_backend
+# Delayed::Worker.guess_backend
 
 module Rails
   class << self
@@ -30,6 +30,8 @@ module Rails
   end
 end
 require File.join(File.dirname(__FILE__), 'database.rb')
+
+Delayed::Worker.guess_backend
 
 require 'rspec'
 
