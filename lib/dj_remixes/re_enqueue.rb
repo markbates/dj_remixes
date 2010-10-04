@@ -36,7 +36,7 @@ module DJ
     def enqueue_again # :nodoc:
       if self.class.re_enqueuable
         new_worker = self.clone()
-        new_worker.enqueue
+        new_worker._enqueue
       end
     end
     
