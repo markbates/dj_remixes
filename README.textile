@@ -101,6 +101,26 @@ Tell DJ to re-enqueue this worker after it has successfully completely. *NOTE*: 
   end
 </code></pre>
 
+h3. Attributes
+
+The <code>DJ::Worker</code> class can accept attributes, similar to the way an <code>ActiveRecord</code> model can.
+
+<pre><code>
+  class FooWorker < DJ::Worker
+    priority :high
+  
+    def perform
+      # do work
+      puts self.id # => 1
+      puts self.person # => 'Mark Bates'
+    end
+  
+  end
+  
+  worker = FooWorker.new(:id => 1, :person => 'Mark Bates')
+  worker.enqueue!
+</code></pre>
+
 h2. Contributors
 
 * Mark Bates
