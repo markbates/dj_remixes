@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description = %q{dj_remixes was developed by: markbates}
   s.email = %q{mark@markbates.com}
   s.extra_rdoc_files = ["README", "LICENSE"]
-  s.files = ["lib/dj_remixes/active_record_railtie.rb", "lib/dj_remixes/attributes.rb", "lib/dj_remixes/callbacks.rb", "lib/dj_remixes/dj_remixes.rb", "lib/dj_remixes/hoptoad.rb", "lib/dj_remixes/priority.rb", "lib/dj_remixes/re_enqueue.rb", "lib/dj_remixes/requires.rb", "lib/dj_remixes/run_at.rb", "lib/dj_remixes/unique.rb", "lib/dj_remixes/unique_validator.rb", "lib/dj_remixes/worker.rb", "lib/dj_remixes.rb", "README", "LICENSE"]
+  s.files = ["lib/dj_remixes/action_mailer/action_mailer.rb", "lib/dj_remixes/action_mailer/action_mailer_railtie.rb", "lib/dj_remixes/active_record_railtie.rb", "lib/dj_remixes/attributes.rb", "lib/dj_remixes/callbacks.rb", "lib/dj_remixes/dj_remixes.rb", "lib/dj_remixes/hoptoad.rb", "lib/dj_remixes/priority.rb", "lib/dj_remixes/re_enqueue.rb", "lib/dj_remixes/requires.rb", "lib/dj_remixes/run_at.rb", "lib/dj_remixes/unique.rb", "lib/dj_remixes/unique_validator.rb", "lib/dj_remixes/worker.rb", "lib/dj_remixes.rb", "README", "LICENSE"]
   s.homepage = %q{http://www.metabates.com}
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{magrathea}
