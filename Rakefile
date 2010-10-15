@@ -27,3 +27,6 @@ end
 Gemstub.rdoc do |rd|
   rd.title = 'DJ Remixes'
 end
+
+
+# git log --all --format='%aN' | sort -u
