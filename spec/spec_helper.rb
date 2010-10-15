@@ -10,6 +10,7 @@ gem 'railties'
 gem 'activesupport'
 gem 'activerecord'
 require 'rails/railtie'
+require 'action_mailer'
 
 module HoptoadNotifier
   def self.notify_or_ignore(error, options = {})
