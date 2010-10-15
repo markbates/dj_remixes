@@ -1,8 +1,8 @@
 require 'mark_facets'
 %w{dj_remixes 
    worker 
-   attributes 
    callbacks 
+   attributes 
    priority 
    run_at 
    unique 

@@ -17,18 +17,26 @@ module HoptoadNotifier
   end
 end
 
+module Rails
+  class << self
+    
+    def version
+      '3.0.0'
+    end
+
+    attr_accessor :logger
+    
+  end
+end
+
+Rails.logger = Logger.new(STDOUT)
+
 # require File.join(File.dirname(__FILE__), '..', 'delayed_job', 'lib', 'delayed_job')
 require 'delayed_job'
 
 # Delayed::Worker.guess_backend
 
-module Rails
-  class << self
-    def version
-      '3.0.0'
-    end
-  end
-end
+
 require File.join(File.dirname(__FILE__), 'database.rb')
 
 Delayed::Worker.guess_backend

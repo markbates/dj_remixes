@@ -6,7 +6,7 @@ module DJ
     class << self
       
       def enqueue(*args)
-        self.new(*args)._enqueue
+        self.new(*args).enqueue!
       end
       
     end
@@ -27,14 +27,14 @@ module DJ
       end
     end
     
-    def _enqueue(priority = self.priority, run_at = self.run_at)
+    def enqueue!(priority = self.priority, run_at = self.run_at)
       job = DJ.enqueue(self, priority, run_at)
       job.worker_class_name = self.worker_class_name
       job.save
       return job
     end
     
-    alias_method :save, :_enqueue
+    alias_method :save, :enqueue!
     
     # Needs to be implemented by subclasses! It's only here
     # so people can hook into it.

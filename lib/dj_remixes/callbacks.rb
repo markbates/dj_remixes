@@ -11,10 +11,10 @@ module DJ
     
     def success(job)
       job.touch(:finished_at)
-      self.enqueue_again
+      self.enqueue_again if self.respond_to?(:enqueue_again)
     end
     
-    def failure(job, error)
+    def error(job, error)
       job.update_attributes(:started_at => nil)
     end
     

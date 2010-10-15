@@ -19,7 +19,7 @@ describe DJ::Worker do
       w = SimpleWorker.new
       w.run_at = 1.week.from_now
       w.priority = :immediate
-      job = w.enqueue
+      job = w.enqueue!
       job.priority.should === -10000
       job.run_at.should == 1.week.from_now
       job.worker_class_name.should == w.worker_class_name

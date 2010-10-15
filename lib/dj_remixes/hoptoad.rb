@@ -3,12 +3,12 @@ if Object.const_defined?(:HoptoadNotifier)
     class Worker
     
       # Report Errors to Hoptoad:
-      def failure_with_hoptoad(job, error)
+      def error_with_hoptoad(job, error)
         HoptoadNotifier.notify_or_ignore(error, :cgi_data => self.dj_object.attributes)
-        failure_without_hoptoad(job, error)
+        error_without_hoptoad(job, error)
       end
     
-      alias_method_chain :failure, :hoptoad
+      alias_method_chain :error, :hoptoad
     
     end # Worker
   end # DJ
