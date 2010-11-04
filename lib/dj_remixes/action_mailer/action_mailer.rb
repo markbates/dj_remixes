@@ -17,6 +17,7 @@ module Mail
       if ActionMailer::Base.delivery_method == :test
         deliver_without_worker
       else
+        puts self
         Mail::Message::MailmanWorker.enqueue(:mail => Marshal.dump(self), :klass => self.delivery_handler.name)
         return self
       end
