@@ -124,4 +124,5 @@ The <code>DJ::Worker</code> class can accept attributes, similar to the way an <
 h2. Contributors
 
 * Mark Bates
+* Stuart Garner
 * Lars Pind
