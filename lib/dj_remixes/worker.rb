@@ -28,7 +28,7 @@ module DJ
     end
     
     def enqueue!(priority = self.priority, run_at = self.run_at)
-      job = DJ.enqueue(self, priority, run_at)
+      job = DJ.enqueue(:payload_object => self, :priority => priority, :run_at => run_at)
       job.worker_class_name = self.worker_class_name
       job.save
       return job
