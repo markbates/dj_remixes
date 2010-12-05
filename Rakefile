@@ -17,7 +17,7 @@ Bundler.require
 Gemstub.test_framework = :rspec
 
 Gemstub.gem_spec do |s|
-  s.version = '0.2.2'
+  s.version = '0.2.3'
   s.rubyforge_project = 'magrathea'
   s.add_dependency('mark_facets', '>= 0.1.0')
   s.email = 'mark@markbates.com'
