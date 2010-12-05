@@ -3,8 +3,6 @@ module Mail
     
     class MailmanWorker < DJ::Worker
 
-      priority :urgent
-
       def perform   
         # Force loading of the class first to avoid the dreaded 'undefined class/module' error
         eval(self.klass)
