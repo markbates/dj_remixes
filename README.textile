@@ -20,8 +20,8 @@ h2. Installation
 In your <code>Gemfile</code> add the following:
 
 <pre><code>
-  gem 'delayed_job', :git => 'git://github.com/collectiveidea/delayed_job.git'
-  gem 'dj_remixes', '>= 0.2.0'
+  gem "delayed_job", "2.1.1"
+  gem "dj_remixes"
 </code></pre>
 
 Then install the gems:
