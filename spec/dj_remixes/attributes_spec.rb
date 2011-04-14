@@ -5,9 +5,8 @@ describe DJ::Worker do
   describe 'attributes' do
     
     it 'should work its method_missing magic on attributes' do
-      job = SimpleWorker.new(:user => 1, 'email' => 'foo@example.com', :id => 99)
-      job.attributes.should == {'user' => 1, 'email' => 'foo@example.com', 'id' => 99}
-      job.id.should == 99
+      job = SimpleWorker.new(:user => 1, 'email' => 'foo@example.com')
+      job.attributes.should == {'user' => 1, 'email' => 'foo@example.com'}
       job.user.should == 1
       job.email.should == 'foo@example.com'
       job.user = 2

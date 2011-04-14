@@ -20,8 +20,8 @@ module DJ
     end
     
     def worker_class_name
-      if self.id
-        @worker_class_name ||= File.join(self.class.to_s.underscore, self.id.to_s)
+      if self[:id]
+        @worker_class_name ||= File.join(self.class.to_s.underscore, self[:id].to_s)
       else
         @worker_class_name ||= self.class.to_s.underscore
       end
