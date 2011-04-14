@@ -143,4 +143,5 @@ h2. Contributors
 * Mark Bates
 * Stuart Garner
 * Brent Kirby
+* Luke Pearce
 * Lars Pindrake 

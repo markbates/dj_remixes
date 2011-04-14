@@ -26,7 +26,6 @@ Then install the gems:
 
   $ bundle install
 
-
 Create a migration to add the required dj_remixes fields to the delayed_job table:
 
   class AddDjRemixesColumns < ActiveRecord::Migration
@@ -42,6 +41,7 @@ Create a migration to add the required dj_remixes fields to the delayed_job tabl
       remove_column :delayed_jobs, :finished_at
     end
   end
+
 
 ==Using
 
@@ -127,4 +127,5 @@ The <code>DJ::Worker</code> class can accept attributes, similar to the way an <
 * Mark Bates
 * Stuart Garner
 * Brent Kirby
-* Lars Pind
+* Luke Pearce
+* Lars Pindrake 
