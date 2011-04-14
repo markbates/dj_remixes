@@ -19,14 +19,29 @@ These are a few of the extras for DJ that are included here.
 
 In your <code>Gemfile</code> add the following:
 
-  gem 'delayed_job', :git => 'git://github.com/collectiveidea/delayed_job.git'
-  gem 'dj_remixes', '>= 0.2.0'
+  gem "delayed_job", "2.1.4"
+  gem "dj_remixes"
 
 Then install the gems:
 
   $ bundle install
 
-*NOTE*: At this time DJ Remixes requires the latest and greatest in the delayed_job master branch. When DJ 2.1.0 is officially released this requirement should go away.
+
+Create a migration to add the required dj_remixes fields to the delayed_job table:
+
+  class AddDjRemixesColumns < ActiveRecord::Migration
+    def self.up
+      add_column :delayed_jobs, :worker_class_name,   :string
+      add_column :delayed_jobs, :started_at,          :datetime
+      add_column :delayed_jobs, :finished_at,         :datetime
+    end
+
+    def self.down
+      remove_column :delayed_jobs, :worker_class_name
+      remove_column :delayed_jobs, :started_at
+      remove_column :delayed_jobs, :finished_at
+    end
+  end
 
 ==Using
 

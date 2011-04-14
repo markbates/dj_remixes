@@ -20,7 +20,7 @@ h2. Installation
 In your <code>Gemfile</code> add the following:
 
 <pre><code>
-  gem "delayed_job", "2.1.1"
+  gem "delayed_job", "2.1.4"
   gem "dj_remixes"
 </code></pre>
 
@@ -30,7 +30,24 @@ Then install the gems:
   $ bundle install
 </code></pre>
 
-*NOTE*: At this time DJ Remixes requires the latest and greatest in the delayed_job master branch. When DJ 2.1.0 is officially released this requirement should go away.
+Create a migration to add the required dj_remixes fields to the delayed_job table:
+
+<pre><code>
+  class AddDjRemixesColumns < ActiveRecord::Migration
+    def self.up
+      add_column :delayed_jobs, :worker_class_name,   :string
+      add_column :delayed_jobs, :started_at,          :datetime
+      add_column :delayed_jobs, :finished_at,         :datetime
+    end
+
+    def self.down
+      remove_column :delayed_jobs, :worker_class_name
+      remove_column :delayed_jobs, :started_at
+      remove_column :delayed_jobs, :finished_at
+    end
+  end
+</code></pre>
+
 
 h2. Using
 
@@ -125,4 +142,5 @@ h2. Contributors
 
 * Mark Bates
 * Stuart Garner
-* Lars Pind
+* Brent Kirby
+* Lars Pindrake 
