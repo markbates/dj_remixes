@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dj_remixes}
-  s.version = "0.2.1.20101104153934"
+  s.version = "0.2.4.20110414093139"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["markbates"]
-  s.date = %q{2010-11-04}
+  s.date = %q{2011-04-14}
   s.description = %q{dj_remixes was developed by: markbates}
   s.email = %q{mark@markbates.com}
   s.extra_rdoc_files = ["README", "LICENSE"]
@@ -14,11 +14,10 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://www.metabates.com}
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{magrathea}
-  s.rubygems_version = %q{1.3.7}
+  s.rubygems_version = %q{1.6.2}
   s.summary = %q{dj_remixes}
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
