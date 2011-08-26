@@ -6,7 +6,7 @@ h2. The Extras
 
 * A proper 'Worker' class: DJ::Worker that accepts attributes.
 * Callbacks
-* Hoptoad support, if using Hoptoad.
+* Airbrake (Hoptoad) support, if using Airbrake.
 * Priority settings
 * Automatic re-enqueueing
 * Better scheduling

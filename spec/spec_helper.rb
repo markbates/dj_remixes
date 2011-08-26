@@ -6,13 +6,18 @@ require 'timecop'
 FileUtils.mkdir_p(File.join(File.dirname(__FILE__), 'tmp'))
 RAILS_DEFAULT_LOGGER = Logger.new(File.join(File.dirname(__FILE__), 'tmp', 'dj.log'))
 
-gem 'railties'
-gem 'activesupport'
-gem 'activerecord'
+# require 'railties'
+# require 'activesupport'
+# require 'activerecord'
 require 'rails/railtie'
 require 'action_mailer'
 
 module HoptoadNotifier
+  def self.notify_or_ignore(error, options = {})
+  end
+end
+
+module Airbrake
   def self.notify_or_ignore(error, options = {})
   end
 end

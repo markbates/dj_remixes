@@ -8,6 +8,7 @@ require 'mark_facets'
    unique 
    re_enqueue 
    hoptoad 
+   airbrake 
    unique_validator
   }.each do |f|
   require File.expand_path(File.join(File.dirname(__FILE__), f))
